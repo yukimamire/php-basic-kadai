@@ -20,10 +20,14 @@
       
       public function show_price() {
          $this->price;
+         
       }
       }
+    //  メソッドにアクセスして実行する
     // インスタンス
     $food = new Food ('potato',250);
+    $food->show_price('250');
+    
     print_r($food);
 
 
@@ -41,11 +45,13 @@
     
       public function show_height() {
           $this->height;
-          
       }
     }
-  //  インスタンス
+  //  メソッドにアクセスして実行する
+  // インスタンス化する
+      
       $animal = new Animal('dog',60,5000);
+      $animal->show_height('60');
       print_r($animal);
     ?>
   </p>
