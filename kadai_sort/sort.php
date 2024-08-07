@@ -11,30 +11,23 @@
     
      $nums = [15, 4, 18, 23, 10 ];
      
-     
-    function sort_2way($array,$order) {
-
+     function sort_2way($array,$order) {
       if($order) {
-        echo '昇順にソートします。<br>';
+        echo '昇順<br>';
         sort($array);
       } else {
-        echo '降順します。<br>';
+        echo '降順<br>';
         rsort($array);
-        
       }
-      // arrayが処理対象
-      foreach($array as $value) {
-        echo $value;
-        echo'<br>';
-      }
+     }
+    foreach($array as $value) {
+      echo $value;
     }
-    // 仮引数分の実引数を渡す
-     sort_2way($nums,true);
+    sort_2way($nums,true);
+    sort_2way($nums,false);
 
-     echo'<br>';
 
-     sort_2way($nums,false);
-       
+    
         ?>
   </p>
   
