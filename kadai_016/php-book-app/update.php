@@ -17,14 +17,15 @@ if(isset($_GET['id'])) {
 
     $book = $stmt_select_book->fetch(PDO::FETCH_ASSOC);
 
+
     if($book === FALSE) {
       exit ('idパラメータの値が不正です。');
     }
-    $sql_select_book_code = 'SELECT book_code FROM books';
+    $sql_select_book_codes = 'SELECT book_code FROM books';
 
-    $stmt_select_book_code = $pdo->query($sql_select_book_code);
+    $stmt_select_book_codes = $pdo->query($sql_select_book_codes);
 
-  $book_code = $stmt_select_book->fetchAll(PDO::FETCH_COLUMN);
+  $genre_codes = $stmt_select_book_codes->fetchAll(PDO::FETCH_COLUMN);
   } catch (PDOException $e) {
     exit($e->getMessage());
   }
@@ -82,8 +83,14 @@ if(isset($_GET['id'])) {
 
       <?php
        foreach($genre_codes as $genre_code) {
+        // もし変数$genre_codeが商品の仕入先コードの値と一致していれば、selected属性をつけて初期値にする
+        if($genre_codes === $book['genre_code']) {
+
+        echo "<option value='{$genre_code}' selected>{$genre_code}</option>";
+       } else {
         echo "<option value='{$genre_code}'>{$genre_code}</option>";
        }
+      }
       ?>
      </select>
     </div>     
